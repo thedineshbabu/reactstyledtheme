@@ -17,7 +17,6 @@ const StyledApp = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0;
-  min-height: 100vh;
 `;
 
 const StyledHeader = styled.header`
@@ -27,7 +26,8 @@ const StyledHeader = styled.header`
   height: 4rem;
   justify-content: space-between;
   padding: 0 1rem;
-  position: relative;
+  position: sticky;
+  top: 0;
 `;
 
 const StyledMain = styled.main`
@@ -37,6 +37,7 @@ const StyledMain = styled.main`
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
+  min-height: 100vh;
 `;
 
 const StyledImg = styled.span`
@@ -44,10 +45,7 @@ const StyledImg = styled.span`
 `;
 
 export default function App() {
-  // This doesn't scale
-  // We need a custom Hook
-  // and storage saving for better persistence
-  const [theme, setTheme] = React.useState("light");
+  const [theme, setTheme] = React.useState("dark");
   const isDark = theme === "dark";
 
   const toggleTheme = () => setTheme(isDark ? "light" : "dark");
@@ -57,9 +55,67 @@ export default function App() {
       <GlobalStyle />
       <StyledApp>
         <StyledHeader>
+          <span
+            style={{
+              fontSize: "1.5rem",
+            }}
+          >
+            👨🏻‍💻
+          </span>
           <span>Dinesh Manoharan</span>
           <ThemeSwitch theme={theme} toggleTheme={toggleTheme} />
         </StyledHeader>
+        <StyledMain>
+          {isDark ? (
+            <>
+              <StyledImg role="img" arial-label="light">
+                🌙
+              </StyledImg>
+              <p>Dark theme is even better</p>
+            </>
+          ) : (
+            <>
+              <StyledImg role="img" arial-label="dark">
+                ☀️
+              </StyledImg>
+              <p>Light theme is nice</p>
+            </>
+          )}
+        </StyledMain>
+        <StyledMain>
+          {isDark ? (
+            <>
+              <StyledImg role="img" arial-label="light">
+                🌙
+              </StyledImg>
+              <p>Dark theme is even better</p>
+            </>
+          ) : (
+            <>
+              <StyledImg role="img" arial-label="dark">
+                ☀️
+              </StyledImg>
+              <p>Light theme is nice</p>
+            </>
+          )}
+        </StyledMain>
+        <StyledMain>
+          {isDark ? (
+            <>
+              <StyledImg role="img" arial-label="light">
+                🌙
+              </StyledImg>
+              <p>Dark theme is even better</p>
+            </>
+          ) : (
+            <>
+              <StyledImg role="img" arial-label="dark">
+                ☀️
+              </StyledImg>
+              <p>Light theme is nice</p>
+            </>
+          )}
+        </StyledMain>
         <StyledMain>
           {isDark ? (
             <>

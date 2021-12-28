@@ -5,6 +5,7 @@ import { lightTheme, darkTheme } from "./theme";
 import About from "./components/About";
 import Arrow from "./components/arrow.svg";
 import SkillsList from "./components/SkillsList";
+import Timeline from "./components/Timeline";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -33,7 +34,7 @@ const StyledHeader = styled.header`
   position: relative;
 `;
 
-const StyledMain = styled.main`
+const StyledMain = styled.section`
   align-items: center;
   display: flex;
   flex: 1;
@@ -48,6 +49,12 @@ const StyledImg = styled.span`
   cursor: pointer;
 `;
 
+const StyledTheme = styled.div`
+  position: fixed;
+  top: 10;
+  right: 10;
+`;
+
 export default function App() {
   const [theme, setTheme] = React.useState("dark");
   const isDark = theme === "dark";
@@ -57,19 +64,6 @@ export default function App() {
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme} setTheme={setTheme}>
       <GlobalStyle />
-      {/* <div
-        style={{
-          position: "fixed",
-          bottom: 10,
-          right: 10,
-          cursor: "pointer",
-          color: theme === "light" ? "black" : "white",
-        }}
-      >
-        <StyledImg role="img" arial-label="light">
-          ↡
-        </StyledImg>
-      </div> */}
       <StyledApp>
         <StyledHeader>
           <span
@@ -106,24 +100,10 @@ export default function App() {
           <SkillsList />
         </StyledMain>
         <StyledMain>
-          {isDark ? (
-            <>
-              <StyledImg role="img" arial-label="light">
-                🌙
-              </StyledImg>
-              <p>Dark theme is even better</p>
-            </>
-          ) : (
-            <>
-              <StyledImg role="img" arial-label="dark">
-                ☀️
-              </StyledImg>
-              <p>Light theme is nice</p>
-            </>
-          )}
+          <Timeline />
         </StyledMain>
         <StyledMain>
-          {isDark ? (
+          {/* {isDark ? (
             <>
               <StyledImg role="img" arial-label="light">
                 🌙
@@ -137,7 +117,8 @@ export default function App() {
               </StyledImg>
               <p>Light theme is nice</p>
             </>
-          )}
+          )} */}
+          <h1>Contact</h1>
         </StyledMain>
       </StyledApp>
     </ThemeProvider>

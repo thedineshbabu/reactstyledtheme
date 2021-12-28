@@ -1,9 +1,11 @@
 import React from "react";
+import Skills from "./Skills";
 
 const SkillsList = () => {
   return (
     <div>
-      <h1>Skills</h1>
+      <h1>SkillsList</h1>
+      <Skills />
     </div>
   );
 };

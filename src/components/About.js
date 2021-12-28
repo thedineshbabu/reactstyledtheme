@@ -6,7 +6,7 @@ import Blob from "./blob.svg";
 const Wrapper = styled.div`
   text-align: justify;
   max-width: 1000px;
-  min-width: 500px;
+  min-width: 250px;
   align-items: center;
   align-content: center;
   justify-content: center;

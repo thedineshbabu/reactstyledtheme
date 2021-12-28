@@ -2,6 +2,9 @@ import React from "react";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import ThemeSwitch from "./ThemeSwitch";
 import { lightTheme, darkTheme } from "./theme";
+import About from "./components/About";
+import Arrow from "./components/arrow.svg";
+import SkillsList from "./components/SkillsList";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -17,6 +20,7 @@ const StyledApp = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0;
+  position: relative;
 `;
 
 const StyledHeader = styled.header`
@@ -26,8 +30,7 @@ const StyledHeader = styled.header`
   height: 4rem;
   justify-content: space-between;
   padding: 0 1rem;
-  position: sticky;
-  top: 0;
+  position: relative;
 `;
 
 const StyledMain = styled.main`
@@ -35,13 +38,14 @@ const StyledMain = styled.main`
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 1rem;
   min-height: 100vh;
 `;
 
 const StyledImg = styled.span`
   font-size: 3rem;
+  cursor: pointer;
 `;
 
 export default function App() {
@@ -53,6 +57,19 @@ export default function App() {
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme} setTheme={setTheme}>
       <GlobalStyle />
+      {/* <div
+        style={{
+          position: "fixed",
+          bottom: 10,
+          right: 10,
+          cursor: "pointer",
+          color: theme === "light" ? "black" : "white",
+        }}
+      >
+        <StyledImg role="img" arial-label="light">
+          ↡
+        </StyledImg>
+      </div> */}
       <StyledApp>
         <StyledHeader>
           <span
@@ -62,42 +79,31 @@ export default function App() {
           >
             👨🏻‍💻
           </span>
-          <span>Dinesh Manoharan</span>
-          <ThemeSwitch theme={theme} toggleTheme={toggleTheme} />
+          <div
+            style={{
+              position: "fixed",
+              top: 10,
+              right: 10,
+            }}
+          >
+            <ThemeSwitch theme={theme} toggleTheme={toggleTheme} />
+          </div>
+          <div
+            style={{
+              position: "fixed",
+              bottom: 10,
+              right: 10,
+            }}
+          >
+            <ThemeSwitch theme={theme} toggleTheme={toggleTheme} />
+          </div>
         </StyledHeader>
+
         <StyledMain>
-          {isDark ? (
-            <>
-              <StyledImg role="img" arial-label="light">
-                🌙
-              </StyledImg>
-              <p>Dark theme is even better</p>
-            </>
-          ) : (
-            <>
-              <StyledImg role="img" arial-label="dark">
-                ☀️
-              </StyledImg>
-              <p>Light theme is nice</p>
-            </>
-          )}
+          <About />
         </StyledMain>
         <StyledMain>
-          {isDark ? (
-            <>
-              <StyledImg role="img" arial-label="light">
-                🌙
-              </StyledImg>
-              <p>Dark theme is even better</p>
-            </>
-          ) : (
-            <>
-              <StyledImg role="img" arial-label="dark">
-                ☀️
-              </StyledImg>
-              <p>Light theme is nice</p>
-            </>
-          )}
+          <SkillsList />
         </StyledMain>
         <StyledMain>
           {isDark ? (

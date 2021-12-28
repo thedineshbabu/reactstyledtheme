@@ -10,7 +10,6 @@ const StyledButton = styled.button`
   display: inline-flex;
   font-size: 1rem;
   outline: none;
-  position: relative;
 `;
 
 const StyledIndicator = styled(animated.span)`
